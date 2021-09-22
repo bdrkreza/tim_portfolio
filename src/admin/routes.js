@@ -1,9 +1,9 @@
 import Profile from "./views/examples/Profile";
 import Tables from "./views/examples/Tables";
 import Index from "./views/Index";
-import AddProject from "./views/project/AddProject";
-import ProjectList from "./views/project/ProjectList";
-import UserList from "./views/project/UserList";
+import AddProject from "./views/project/AddProject/AddProject";
+import ProjectList from "./views/project/ProjectList/ProjectList";
+import UserList from "./views/project/UserList/UserList";
 
 // const selectDashboard = () => {
 //   switch (data?.role) {

@@ -1,0 +1,297 @@
+$bezier: cubic-bezier(0.215, 0.61, 0.355, 1);
+$time: 300ms;
+
+$base-font-family: "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial,
+  sans-serif;
+
+@mixin animated($time: 300ms, $fillmode: both, $count: 1) {
+  animation-duration: $time;
+  animation-fill-mode: $fillmode;
+  animation-iteration-count: $count;
+}
+
+.ui-input {
+  position: relative;
+  padding: 0;
+  border: 0;
+}
+
+.ui-input input {
+  font-family: $base-font-family;
+  border: 0;
+  background: none;
+  padding: 1px 0 1px 0;
+  font-size: 20px;
+  outline: 0;
+  width: 100%;
+  tap-highlight-color: rgba(190, 85, 85, 0);
+  touch-callout: none;
+}
+
+.ui-input input + label {
+  position: relative;
+  display: block;
+  padding: 3px 0 1px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.0875em;
+  font-weight: 500;
+  text-align: left;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+  }
+
+  &::before {
+    background-color: rgba(212, 194, 194, 0.74);
+  }
+
+  &::after {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $time $bezier;
+    background-color: #0a57cc;
+    height: 2px;
+  }
+
+  span {
+    position: relative;
+    color: rgba(255, 255, 255, 0.753);
+    transition: color $time $bezier;
+
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      transform: scaleX(1);
+      white-space: nowrap;
+      color: rgb(218, 60, 60);
+
+      background-image: linear-gradient(
+        to right,
+        #4a90e2 50%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: 100% 50%;
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      backface-visibility: hidden;
+      perspective: 1000;
+      transform: translateZ(0);
+
+      transition: background-position $time $bezier;
+    }
+  }
+}
+
+.ui-input input:focus,
+.ui-input input.error,
+.ui-input input:invalid,
+.ui-input input.filled {
+  & + label {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    span::after {
+      //color: #4A90E2;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.ui-input input.filled {
+  color: #c96c6c;
+
+  & + label {
+    &::after {
+      background-color: #db3030;
+    }
+
+    span::after {
+      background-image: linear-gradient(
+        to right,
+        #db1f1f 50%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.ui-input input:focus {
+  color: #e4eee6;
+
+  & + label {
+    &::after {
+      background-color: #ee17089d;
+    }
+
+    span::after {
+      background-image: linear-gradient(
+        to right,
+        #6eb1ff 50%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.ui-input input.error,
+.ui-input input:invalid {
+  color: #e66161;
+
+  & + label {
+    &::after {
+      background-color: #e66161;
+    }
+
+    span::after {
+      background-image: linear-gradient(
+        to right,
+        #e66161 50%,
+        rgba(255, 255, 255, 0) 0%
+      );
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.btn {
+  border: 0;
+  background-color: #50617a;
+  padding: 18px 30px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.0875em;
+  font-weight: 500;
+  color: #ffffff;
+  font-family: $base-font-family;
+  border-radius: 100px;
+  outline: 0;
+  transition: background-color $time $bezier, color $time $bezier;
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover {
+  background-color: #6eb1ff;
+  color: white;
+}
+
+.__first,
+.__second,
+.__third,
+.__fourth {
+  animation-name: fadeIn;
+  animation-duration: 180ms;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+.__first {
+  animation-delay: 0;
+}
+.__second {
+  animation-delay: 80ms;
+}
+.__third {
+  animation-delay: 180ms;
+}
+.__fourth {
+  animation-delay: 360ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -25%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.add_btn {
+  display: flex;
+  justify-content: end;
+}
+
+.addremove {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.addremove i {
+  font-size: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-family: "Alice", serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #030e2c;
+}
+
+#file[type="file"] {
+  display: none;
+}
+.file_label-holder {
+  width: 100%;
+  height: 10px;
+  margin-top: 1em;
+  display: grid;
+  place-items: center;
+  margin-bottom: 40px;
+}
+.file_label {
+  height: 40px;
+  width: 150px;
+  background-color: #2a3eb1;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.result {
+  width: 400px;
+  min-height: 100%;
+  max-height: auto;
+  width: 100%;
+  background-color: #062e70;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+}
+
+.upimage {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  padding: 1rem;
+  border: 2px solid rgb(82, 59, 185);
+  border-radius: 30px;
+}
