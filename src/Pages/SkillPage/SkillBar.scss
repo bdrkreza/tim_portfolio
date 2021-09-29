@@ -1,0 +1,151 @@
+@mixin center {
+  transform: translate(-50%, -50%);
+}
+
+$sign-color: #355691;
+$darker-sign-color: darken($sign-color, 20%);
+$circle-bg: rgba(141, 166, 179, 0.4);
+$circle-color: lighten($sign-color, 20%);
+$circle-size: 120px;
+$transition-length: 2s;
+$inset-size: 85px;
+$inset-color: #fbfbfb;
+$shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+$increment: 180deg/100;
+$percentage-color: #455fae;
+$percentage-font-size: 22px;
+$percentage-text-width: 44px;
+$space-between: 25px;
+
+//IMPORTANT! Change $values here to specific skill value (from 1 - 100),
+//and $skills to correspond for specific value (85 for HTML5, 93 for CSS3 etc.)
+$values: 85, 93, 87, 83, 43;
+$skills: HTML5, CSS3 / SCSS, jQuery, JS, PHP;
+$skill-count: 5;
+//Change number of $skill-count if you want more or less.
+//Don't forget to change html markup as well (copy/paste or delete entire .skill-progress block);
+
+.skill-wrapper {
+  display: flex;
+  padding: 50px 0px;
+  justify-content: center;
+  align-items: center;
+  .skill-progress {
+    display: inline-block;
+    background-color: $circle-bg;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    margin-right: $space-between;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .circle {
+      .mask {
+        width: $circle-size;
+        height: $circle-size;
+        position: absolute;
+        border-radius: 50%;
+        transition: -webkit-transform $transition-length;
+        transition: -ms-transform $transition-length;
+        transition: transform $transition-length;
+        -webkit-backface-visibility: hidden;
+        clip: rect(0px, $circle-size, $circle-size, $circle-size/2);
+
+        &:before {
+          @extend .mask;
+          display: block;
+          content: "";
+          clip: rect(0px, $circle-size/2, $circle-size, 0px);
+          background-color: $circle-color;
+        }
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        width: $circle-size;
+        height: $circle-size;
+        position: absolute;
+        border-radius: 50%;
+        box-shadow: $shadow inset;
+      }
+    }
+
+    .inset {
+      width: $inset-size;
+      height: $inset-size;
+      position: absolute;
+      margin-left: ($circle-size - $inset-size)/2;
+      margin-top: ($circle-size - $inset-size)/2;
+      background-color: $inset-color;
+      border-radius: 50%;
+      box-shadow: $shadow;
+
+      &:before {
+        content: "";
+        display: block;
+        width: $percentage-text-width;
+        height: $percentage-font-size;
+        position: absolute;
+        top: ($inset-size - $percentage-font-size) / 2;
+        left: ($inset-size - $percentage-text-width) / 2;
+        line-height: 1;
+        transition: width $transition-length 3s;
+        overflow: hidden;
+      }
+
+      .numbers {
+        margin-top: -$percentage-font-size;
+        transition: width $transition-length;
+      }
+    }
+  }
+}
+
+.go {
+  @for $z from 1 through $skill-count {
+    $i: nth($values, $z);
+
+    &:nth-child(n + #{$z}) {
+      .circle {
+        .mask:before,
+        .mask:nth-child(2) {
+          -webkit-transform: rotate($increment * $i);
+          -ms-transform: rotate($increment * $i);
+          transform: rotate($increment * $i);
+        }
+      }
+
+      .inset .numbers {
+        width: $i * $percentage-text-width + $percentage-text-width;
+
+        &:before {
+          @include center;
+          content: "#{$i}%";
+          font-size: $percentage-font-size;
+          font-weight: 800;
+          color: $percentage-color;
+          animation: go-#{$z} $transition-length ease-out;
+
+          @keyframes go-#{$z} {
+            @for $j from 1 through $i {
+              $temp: 100 / $i;
+              $percent: ($temp * $j);
+            }
+          }
+        }
+
+        &:after {
+          @include center;
+          content: "#{nth($skills, $z)}";
+          font-weight: 100;
+          color: $darker-sign-color;
+          top: 120px;
+        }
+      }
+    }
+  }
+}

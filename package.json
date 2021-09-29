@@ -13,6 +13,7 @@
     "bootstrap": "4.5.3",
     "chart.js": "2.9.4",
     "classnames": "2.2.6",
+    "firebase": "^9.0.2",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "lodash": "^4.17.21",
@@ -27,9 +28,11 @@
     "react-datetime": "3.0.4",
     "react-dom": "17.0.1",
     "react-hook-form": "^7.15.4",
+    "react-read-more-read-less": "^1.0.7",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.1",
-    "reactstrap": "8.7.1"
+    "reactstrap": "8.7.1",
+    "read-more-react": "^1.0.10"
   },
   "optionalDependencies": {
     "jquery": "3.5.1",

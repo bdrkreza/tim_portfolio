@@ -2,6 +2,7 @@ import Admin from "admin/Admin";
 import Contact from "components/Contact/Contact";
 import DefaultLayout from "components/layout/DefaultLayout";
 import About from "Pages/About/About";
+import Blog from "Pages/Blog/Blog";
 import Home from "Pages/Home/Home";
 import LandingPage from "Pages/LandlingPage/LandingPage";
 import Project from "Pages/Project/Project";
@@ -25,6 +26,7 @@ const AppRouter = ({ children }) => {
             <Route path="/signup" component={Signup} />
             <Route path="/contact" component={Contact} />
             <Route path="/service" component={Service} />
+            <Route path="/blog" component={Blog} />
             <Route path="/admin" component={Admin} />
           </Suspense>
         </Switch>

@@ -1,4 +1,4 @@
-const FileUpload = ({ handleImageChange, selectedFiles }) => {
+const FileUpload = ({ handleImageChange, selectedFiles, control }) => {
   const renderPhotos = (source) => {
     return source.map((photo) => {
       return <img className="upimage" src={photo} alt="" key={photo} />;
@@ -12,9 +12,25 @@ const FileUpload = ({ handleImageChange, selectedFiles }) => {
         <input
           type="file"
           id="file"
+          name="image"
           multiple
           onChange={(e) => handleImageChange(e)}
         />
+
+        {/* <Controller
+          name="image"
+          control={control}
+          render={({ field }) => (
+            <input
+              type="file"
+              onChange={(e) => {
+                field.onChange(e.target.files);
+              }}
+              multiple
+            />
+          )}
+        /> */}
+
         <div className="file_label-holder">
           <label htmlFor="file" className="file_label">
             <i className="tim-icons icon-camera-18" />

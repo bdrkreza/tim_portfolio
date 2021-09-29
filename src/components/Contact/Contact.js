@@ -31,13 +31,13 @@ export default function Contact() {
                       <Col md="6">
                         <FormGroup>
                           <label>Your Name</label>
-                          <Input defaultValue="Mike" type="text" />
+                          <Input placeholder="Rezaul Karim" type="text" />
                         </FormGroup>
                       </Col>
                       <Col md="6">
                         <FormGroup>
                           <label>Email address</label>
-                          <Input placeholder="mike@email.com" type="email" />
+                          <Input placeholder="diureza@email.com" type="email" />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -45,13 +45,13 @@ export default function Contact() {
                       <Col md="6">
                         <FormGroup>
                           <label>Phone</label>
-                          <Input defaultValue="001-12321345" type="text" />
+                          <Input placeholder="+088 01789-380336" type="text" />
                         </FormGroup>
                       </Col>
                       <Col md="6">
                         <FormGroup>
                           <label>Company</label>
-                          <Input defaultValue="CreativeTim" type="text" />
+                          <Input placeholder="rkreza" type="text" />
                         </FormGroup>
                       </Col>
                     </Row>
@@ -91,10 +91,11 @@ export default function Contact() {
                 <div className="description">
                   <h4 className="info-title">Find us at the office</h4>
                   <p>
-                    Bld Mihail Kogalniceanu, nr. 8, <br />
-                    7652 Bucharest, <br />
-                    Romania
+                    Farmgate,Tejgaon,Dhaka <br />
+                    1207 Khamarbari, <br />
+                    Bangladesh
                   </p>
+                  <p className="h4 text-cyan"> rkreza2020@gmail.com</p>
                 </div>
               </div>
               <div className="info info-horizontal">
@@ -104,9 +105,10 @@ export default function Contact() {
                 <div className="description">
                   <h4 className="info-title">Give us a ring</h4>
                   <p>
-                    Michael Jordan <br />
-                    +40 762 321 762 <br />
-                    Mon - Fri, 8:00-22:00
+                    Md Rezaul Karim <br />
+                    <span className="text-cyan"> +880 01632-020202 </span>
+                    <br />
+                    Mon - Fri, 10:00-10:00
                   </p>
                 </div>
               </div>

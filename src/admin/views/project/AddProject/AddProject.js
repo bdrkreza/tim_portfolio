@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { CardBody, Col, Container, Row } from "reactstrap";
-import { multipleFilesUpload } from "Server/API";
+import { CardBody, Col, Container, FormGroup, Row } from "reactstrap";
 import "./addProject.scss";
 import DynamicContent from "./DynamicContent";
 import FileUpload from "./FileUpload";
 
 export default function AddProject() {
+  const [loading, setLoading] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [multipleProgress, setMultipleProgress] = useState(0);
   const [imgFile, setImgFile] = useState("");
+  const [multipleFiles, setMultipleFiles] = useState("");
+  console.log(imgFile);
 
   const mulitpleFileOptions = {
     onUploadProgress: (progressEvent) => {
@@ -20,9 +22,9 @@ export default function AddProject() {
   };
 
   const handleImageChange = (e) => {
+    setMultipleFiles(e.target.files);
     for (let i = 0; i < e.target.files.length; i++) {
       const newImage = e.target.files[i];
-      newImage["id"] = Math.random();
       setImgFile((prevState) => [...prevState, newImage]);
     }
 
@@ -38,16 +40,6 @@ export default function AddProject() {
     }
   };
 
-  const UploadMultipleFiles = async (data) => {
-    const formData = new FormData();
-    formData.append("titile", data);
-    for (let i = 0; i < imgFile.length; i++) {
-      formData.append("img", imgFile[i]);
-    }
-
-    await multipleFilesUpload(formData, mulitpleFileOptions);
-  };
-
   const {
     register,
     handleSubmit,
@@ -61,8 +53,28 @@ export default function AddProject() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    UploadMultipleFiles(data);
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("qty", data.qty);
+    const featureJson = JSON.stringify(data.users);
+    formData.append("feature", featureJson);
+    for (let i = 0; i < multipleFiles.length; i++) {
+      formData.append("photos", multipleFiles[i]);
+    }
+
+    setLoading(true);
+
+    fetch("http://localhost:5000/api/post", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          alert("Create service successfully");
+        }
+        setLoading(false);
+      });
     reset();
   };
 
@@ -71,48 +83,46 @@ export default function AddProject() {
       <Container fluid>
         <div className="header-body">
           {/* Card stats */}
-
-          <Row>
-            <Col lg="6">
-              <div className="heading">Project Title</div>
-              <CardBody>
-                <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Row>
+              <Col lg="6">
+                <div className="heading">Project Title</div>
+                <CardBody>
                   <Row>
                     <Col lg="6">
-                      <fieldset class="form-fieldset ui-input __first">
-                        <input
-                          {...register("name", { required: true })}
-                          type="text"
-                          placeholder="Enter project name"
-                        />
-                        <label for="name">
-                          <span data-text="name">Project Name</span>
-                          {errors.name && (
-                            <span className="text-danger ml-2">
-                              is required
-                            </span>
-                          )}
-                        </label>
-                      </fieldset>
+                      <FormGroup>
+                        <fieldset class="form-fieldset ui-input __third">
+                          <input
+                            {...register("name", { required: true })}
+                            type="text"
+                            placeholder="Enter Project Name"
+                          />
+                          <label for="name">
+                            <span data-text="name">Feature One</span>
+                            {errors.name && (
+                              <span className="text-danger">is required</span>
+                            )}
+                          </label>
+                        </fieldset>
+                      </FormGroup>
                     </Col>
 
                     <Col lg="6">
-                      <fieldset class="form-fieldset ui-input __first">
-                        <input
-                          {...register("qty", { required: true })}
-                          type="text"
-                          placeholder="Enter Project quantity"
-                          tabindex="0"
-                        />
-                        <label for="name">
-                          <span data-text="quantity">Project Quantity</span>
-                          {errors.qty && (
-                            <span className="text-danger ml-2">
-                              is required
-                            </span>
-                          )}
-                        </label>
-                      </fieldset>
+                      <FormGroup>
+                        <fieldset class="form-fieldset ui-input __third">
+                          <input
+                            {...register("qty", { required: true })}
+                            type="number"
+                            placeholder="Enter Project quantity"
+                          />
+                          <label for="qty">
+                            <span data-text="qty">project quantity</span>
+                            {errors.qty && (
+                              <span className="text-danger">is required</span>
+                            )}
+                          </label>
+                        </fieldset>
+                      </FormGroup>
                     </Col>
                   </Row>
                   <DynamicContent
@@ -126,17 +136,18 @@ export default function AddProject() {
                       Submit
                     </button>
                   </div>
-                </form>
-              </CardBody>
-            </Col>
+                </CardBody>
+              </Col>
 
-            <Col lg="6">
-              <FileUpload
-                handleImageChange={handleImageChange}
-                selectedFiles={selectedFiles}
-              />
-            </Col>
-          </Row>
+              <Col lg="6">
+                <FileUpload
+                  handleImageChange={handleImageChange}
+                  selectedFiles={selectedFiles}
+                  control={control}
+                />
+              </Col>
+            </Row>
+          </form>
         </div>
       </Container>
     </div>

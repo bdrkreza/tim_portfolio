@@ -22,10 +22,7 @@ export default function UserMenu() {
             <span className="avatar avatar-sm rounded-circle">
               <img
                 alt="..."
-                src={
-                  require("../../admin/assets/img/theme/team-4-800x800.jpg")
-                    .default
-                }
+                src={require("../../assets/img/blog/profile2.jpg").default}
               />
             </span>
             <Media className="ml-2 d-none d-lg-block">

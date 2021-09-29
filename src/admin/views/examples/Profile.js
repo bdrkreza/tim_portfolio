@@ -29,8 +29,7 @@ const Profile = () => {
                         alt="..."
                         className="rounded-circle"
                         src={
-                          require("../../assets/img/theme/team-4-800x800.jpg")
-                            .default
+                          require("../../assets/img/brand/profile2.jpg").default
                         }
                       />
                     </a>

@@ -1,50 +1,55 @@
-import img2 from "../images/portfolio/bootstrap4.png";
-import img3 from "../images/portfolio/SportStack (1).png";
-import img1 from "../images/portfolio/Yomitbuy1.jpg";
-import img4 from "../images/portfolio/yomithbuy.png";
-
-export const iconData = [
+export const serviceData = [
   {
-    src: require("../img/icon_1.jpeg").default,
+    id: "01",
+    img: require("../img/icon/icon-ux.svg").default,
     altText: "Slide 1",
-    caption: "",
+    title: "Web Design",
+    describe:
+      "rkreza is a person of commitment. He is really good at what he is doing. I really like his work. Especially the unique point of view of designing.",
   },
   {
-    src: require("../img/Icon_2.jpg").default,
+    id: "02",
+    img: require("../img/icon/icon-dev.svg").default,
     altText: "Slide 2",
+    title: "Web development",
+    describe:
+      "Really amazing communication skills. Always understand what I am trying to achieve. Also, his work is really amazing. Do really high-quality work.",
     caption: "",
   },
   {
-    src: require("../img/Icon_3.png").default,
+    id: "03",
+    img: require("../img/icon/app_dev.png").default,
     altText: "Slide 3",
+    title: "app Development",
+    describe:
+      "Really hard-working person. Deliver the work as promised. Planning to work more with this person.",
     caption: "",
   },
   {
-    src: require("../img/Icon_4.png").default,
+    id: "04",
+    img: require("../img/icon/web_res.png").default,
     altText: "Slide 3",
-    caption: "",
-  },
-];
-
-export const projectData = [
-  {
-    img: img1,
-    altText: "Slide 1",
+    title: "Web Responsive",
+    describe:
+      " Responsive Design which will be working almost all browsers and screens, Mobile, TaB, PC etc",
     caption: "",
   },
   {
-    img: img2,
-    altText: "Slide 2",
-    caption: "",
-  },
-  {
-    img: img3,
+    id: "05",
+    img: require("../img/icon/01(4).png").default,
     altText: "Slide 3",
+    title: "FULL STACK WEB APP",
+    describe:
+      " Using MERN Stack I usually make Full Stack Web Application and For Authentication Firebase.",
     caption: "",
   },
   {
-    img: img4,
+    id: "06",
+    img: require("../img/icon/icon (1).png").default,
     altText: "Slide 3",
+    title: "Responsive Template Design",
+    describe:
+      "Responsive Design template which will be working almost all browsers and screens, Mobile, TaB, PC etc.",
     caption: "",
   },
 ];

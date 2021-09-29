@@ -1,14 +1,10 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
+const apiUrl = "http://localhost:5000/api/";
 
-export default API;
-
-export const multipleFilesUpload = async (data, options) => {
+export const multipleFilesUpload = async (data) => {
   try {
-    await axios.post(API + "multipleFiles", data, options);
+    await axios.post(apiUrl + "post", data);
   } catch (error) {
     throw error;
   }
@@ -16,7 +12,8 @@ export const multipleFilesUpload = async (data, options) => {
 
 export const getMultipleFiles = async () => {
   try {
-    const { data } = await axios.get(API + "getMultipleFiles");
+    const { data } = await axios.get(apiUrl + "project_get");
+
     return data;
   } catch (error) {
     throw error;

@@ -50,8 +50,9 @@ export default function Package() {
                   </Row>
                   <Row>
                     <ListGroup>
-                      <ListGroupItem>50 messages</ListGroupItem>
-                      <ListGroupItem>100 emails</ListGroupItem>
+                      <ListGroupItem>Template Design</ListGroupItem>
+                      <ListGroupItem>Dynamic website</ListGroupItem>
+                      <ListGroupItem>Dashboard Design</ListGroupItem>
                       <ListGroupItem>24/7 Support</ListGroupItem>
                     </ListGroup>
                   </Row>
@@ -82,8 +83,8 @@ export default function Package() {
                   </Row>
                   <Row>
                     <ListGroup>
-                      <ListGroupItem>150 messages</ListGroupItem>
-                      <ListGroupItem>1000 emails</ListGroupItem>
+                      <ListGroupItem>React Native</ListGroupItem>
+                      <ListGroupItem>Responsive Design</ListGroupItem>
                       <ListGroupItem>24/7 Support</ListGroupItem>
                     </ListGroup>
                   </Row>
@@ -114,8 +115,8 @@ export default function Package() {
                   </Row>
                   <Row>
                     <ListGroup>
-                      <ListGroupItem>350 messages</ListGroupItem>
-                      <ListGroupItem>10K emails</ListGroupItem>
+                      <ListGroupItem>HTML & CSS</ListGroupItem>
+                      <ListGroupItem>Bootstrap and Tailwind</ListGroupItem>
                       <ListGroupItem>24/7 Support</ListGroupItem>
                     </ListGroup>
                   </Row>

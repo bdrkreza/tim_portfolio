@@ -1,6 +1,4 @@
-import classnames from "classnames";
-import PerfectScrollbar from "perfect-scrollbar";
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Card,
@@ -21,35 +19,14 @@ import {
   TabPane,
   UncontrolledTooltip,
 } from "reactstrap";
-let ps = null;
-export default function AboutHero() {
-  const [tabs, setTabs] = React.useState(1);
-  React.useEffect(() => {
-    if (navigator.platform.indexOf("Win") > -1) {
-      document.documentElement.className += " perfect-scrollbar-on";
-      document.documentElement.classList.remove("perfect-scrollbar-off");
-      let tables = document.querySelectorAll(".table-responsive");
-      for (let i = 0; i < tables.length; i++) {
-        ps = new PerfectScrollbar(tables[i]);
-      }
-    }
-    document.body.classList.toggle("about");
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-        document.documentElement.className += " perfect-scrollbar-off";
-        document.documentElement.classList.remove("perfect-scrollbar-on");
-      }
-      document.body.classList.toggle("about");
-    };
-  }, []);
 
+export default function AboutHero() {
+  const [openTab, setOpenTab] = useState(1);
   return (
     <>
-      <Container>
+      <Container className="align-items-center">
         <Row>
-          <Col lg="6" md="6" sm="6">
+          <Col lg="6" md="6">
             <h1 className="profile-title text-left">Mike Scheinder</h1>
             <h5 className="text-on-back">01</h5>
             <p className="profile-description">
@@ -97,7 +74,7 @@ export default function AboutHero() {
               </UncontrolledTooltip>
             </div>
           </Col>
-          <Col className="ml-auto mr-auto mt-5" lg="4" md="6">
+          <Col className="ml-auto mr-auto" lg="4" md="6">
             <Card className="card-coin card-plain">
               <CardHeader>
                 <img
@@ -107,44 +84,51 @@ export default function AboutHero() {
                 />
                 <h4 className="title">Transactions</h4>
               </CardHeader>
+
               <CardBody>
                 <Nav className="nav-tabs-primary justify-content-center" tabs>
-                  <NavItem>
+                  <NavItem
+                    className={
+                      "text-xs font-bold uppercase " +
+                      (openTab === 1 ? "text-white bg-yellow-900" : null)
+                    }
+                  >
                     <NavLink
-                      className={classnames({
-                        active: tabs === 1,
-                      })}
                       onClick={(e) => {
                         e.preventDefault();
-                        setTabs(1);
+                        setOpenTab(1);
                       }}
                       href="#pablo"
                     >
                       Wallet
                     </NavLink>
                   </NavItem>
-                  <NavItem>
+                  <NavItem
+                    className={
+                      "text-xs font-bold uppercase " +
+                      (openTab === 2 ? "text-white bg-yellow-900" : null)
+                    }
+                  >
                     <NavLink
-                      className={classnames({
-                        active: tabs === 2,
-                      })}
                       onClick={(e) => {
                         e.preventDefault();
-                        setTabs(2);
+                        setOpenTab(2);
                       }}
                       href="#pablo"
                     >
                       Send
                     </NavLink>
                   </NavItem>
-                  <NavItem>
+                  <NavItem
+                    className={
+                      "text-xs font-bold uppercase " +
+                      (openTab === 3 ? "text-white bg-yellow-900" : null)
+                    }
+                  >
                     <NavLink
-                      className={classnames({
-                        active: tabs === 3,
-                      })}
                       onClick={(e) => {
                         e.preventDefault();
-                        setTabs(3);
+                        setOpenTab(3);
                       }}
                       href="#pablo"
                     >
@@ -152,11 +136,12 @@ export default function AboutHero() {
                     </NavLink>
                   </NavItem>
                 </Nav>
-                <TabContent
-                  className="tab-subcategories"
-                  activeTab={"tab" + tabs}
-                >
-                  <TabPane tabId="tab1">
+
+                <TabContent>
+                  <TabPane
+                    tabId="tab1"
+                    className={openTab === 1 ? "block" : "hidden"}
+                  >
                     <Table className="tablesorter" responsive>
                       <thead className="text-primary">
                         <tr>
@@ -184,7 +169,10 @@ export default function AboutHero() {
                       </tbody>
                     </Table>
                   </TabPane>
-                  <TabPane tabId="tab2">
+                  <TabPane
+                    tabId="tab2"
+                    className={openTab === 2 ? "block" : "hidden"}
+                  >
                     <Row>
                       <Label sm="3">Pay to</Label>
                       <Col sm="9">
@@ -215,7 +203,10 @@ export default function AboutHero() {
                       <i className="tim-icons icon-send" />
                     </Button>
                   </TabPane>
-                  <TabPane tabId="tab3">
+                  <TabPane
+                    tabId="tab3"
+                    className={openTab === 3 ? "block" : "hidden"}
+                  >
                     <Table className="tablesorter" responsive>
                       <thead className="text-primary">
                         <tr>

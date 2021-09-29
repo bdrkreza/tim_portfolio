@@ -17,25 +17,26 @@ export default function PageNav() {
           href="#pablo"
           nav
           onClick={(e) => e.preventDefault()}
+          className="d-flex align-items-center justify-content-center"
         >
-          <i className="tim-icons icon-paper" />
-          Pages
+          <i className="tim-icons icon-paper  text-white mr-2" />
+          <h4 className="mt-3"> Pages</h4>
         </DropdownToggle>
-        <DropdownMenu className="dropdown-with-icons bg-gradient-indigo mt-3 ">
+        <DropdownMenu className="dropdown-with-icons bg-gradient-teal  ml-3 mt-3 ">
           <DropdownItem className="text-white" tag={Link} to="/about">
-            <i className="tim-icons icon-paper" />
+            <i className="tim-icons icon-paper bg-gradient-darker" />
             About Page
           </DropdownItem>
           <DropdownItem className="text-white" tag={Link} to="/project">
-            <i className="tim-icons icon-bullet-list-67" />
+            <i className="tim-icons icon-bullet-list-67 text-darker " />
             Project Page
           </DropdownItem>
           <DropdownItem className="text-white" tag={Link} to="/landing-page">
-            <i className="tim-icons icon-image-02" />
-            Service Page
+            <i className="tim-icons icon-image-02 text-darker" />
+            Landing Page
           </DropdownItem>
           <DropdownItem className="text-white" tag={Link} to="/blog">
-            <i className="tim-icons icon-single-02" />
+            <i className="tim-icons icon-single-02 text-darker" />
             Blog Page
           </DropdownItem>
         </DropdownMenu>

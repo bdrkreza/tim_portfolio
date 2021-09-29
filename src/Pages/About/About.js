@@ -1,9 +1,9 @@
 import Contact from "components/Contact/Contact";
-import SkillPage from "Pages/SkillPage/SkillPage";
+import SkillProgress from "Pages/SkillPage/SkillProgress";
 // javascript plugin used to create scrollbars on windows
 import React from "react";
-import AboutHero from "./AboutHero";
-// reactstrap components
+import { Container } from "reactstrap";
+import AboutHeader from "./AboutHeader";
 
 export const carouselItems = [
   {
@@ -26,8 +26,8 @@ export const carouselItems = [
 export default function About() {
   return (
     <>
-      <div className="wrapper ">
-        <div className="page-header d-flex align-items-center justify-content-center mt-5">
+      <div className="wrapper">
+        <div className="d-flex align-items-center justify-content-center mt-5">
           <img
             alt="..."
             className="dots"
@@ -38,9 +38,20 @@ export default function About() {
             className="path"
             src={require("assets/img/path4.png").default}
           />
-          <AboutHero />
+          <Container>
+            <AboutHeader />
+          </Container>
         </div>
-        <SkillPage />
+        <div className=" d-flex align-items-center justify-content-center  mt-5">
+          <img
+            alt="..."
+            className="path"
+            src={require("assets/img/cercuri.png").default}
+          />
+          <Container>
+            <SkillProgress />
+          </Container>
+        </div>
         <Contact />
       </div>
     </>

@@ -1,9 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { projectIm } from "assets/FakeData/projectImg";
+import LoadMoreButton from "components/Button/LoadMoreButton";
+import React, { useEffect, useState } from "react";
 // reactstrap components
-import { Button, CardTitle, Col, Container, Row } from "reactstrap";
+import { CardTitle, Col, Container, Row } from "reactstrap";
+import GalleryCard from "./GalleryCard";
 
 export default function Gallery() {
+  const [items, setItems] = useState([]);
+  const [visible, setVisible] = useState(4);
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 2);
+  };
+
+  useEffect(() => {
+    setItems(projectIm);
+  }, []);
   return (
     <div className="section section-examples" data-background-color="black">
       <img
@@ -19,42 +30,16 @@ export default function Gallery() {
             <CardTitle tag="h2"> Our Gallery</CardTitle>
           </Col>
         </Row>
+
         <Row>
-          <Col sm="6">
-            <Link to="landing-page">
-              <img
-                alt="..."
-                className="img-raised"
-                src={require("assets/img/landing-page.png").default}
-              />
-            </Link>
-            <Button
-              className="btn-simple btn-round"
-              color="primary"
-              to="landing-page"
-              tag={Link}
-            >
-              View Landing Page
-            </Button>
-          </Col>
-          <Col sm="6">
-            <Link to="about">
-              <img
-                alt="..."
-                className="img-raised"
-                src={require("assets/img/profile-page.png").default}
-              />
-            </Link>
-            <Button
-              className="btn-simple btn-round"
-              color="primary"
-              to="about"
-              tag={Link}
-            >
-              View Profile Page
-            </Button>
-          </Col>
+          {items.slice(0, visible).map((Items) => (
+            <Col sm="6">
+              <GalleryCard Items={Items} />
+            </Col>
+          ))}
         </Row>
+
+        <LoadMoreButton showMoreItems={showMoreItems} />
       </Container>
     </div>
   );

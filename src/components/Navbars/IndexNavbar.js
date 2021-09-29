@@ -13,9 +13,8 @@ import {
   Row,
   UncontrolledTooltip,
 } from "reactstrap";
+import brandIcon from "../../assets/img/icon/LogoMakr8.png";
 import PageNav from "./PageNav";
-import UserMenu from "./UserMenu";
-
 export default function IndexNavbar() {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
@@ -31,7 +30,7 @@ export default function IndexNavbar() {
       document.documentElement.scrollTop > 99 ||
       document.body.scrollTop > 99
     ) {
-      setColor("bg-info");
+      setColor(" bg-info");
     } else if (
       document.documentElement.scrollTop < 100 ||
       document.body.scrollTop < 100
@@ -57,10 +56,10 @@ export default function IndexNavbar() {
         color-on-scroll="100"
         expand="lg"
       >
-        <Container>
+        <Container className="d-flex justify-content-between align-items-center  ">
           <div className="navbar-translate">
-            <NavbarBrand to="/" tag={Link} id="navbar-brand">
-              <span>rkreza </span>
+            <NavbarBrand to="/" tag={Link} id="navbar-brand" className="">
+              <img src={brandIcon} className="w-50 mt--2" alt="" />
             </NavbarBrand>
 
             <UncontrolledTooltip placement="bottom" target="navbar-brand">
@@ -77,7 +76,9 @@ export default function IndexNavbar() {
             </button>
           </div>
           <Collapse
-            className={"justify-content-end bg-info " + collapseOut}
+            className={
+              "justify-content-end bg-gradient-cyan  nav_bar" + collapseOut
+            }
             navbar
             isOpen={collapseOpen}
             onExiting={onCollapseExiting}
@@ -87,7 +88,7 @@ export default function IndexNavbar() {
               <Row>
                 <Col className="collapse-brand" xs="6">
                   <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    RezaulKarim
+                    RK REZA
                   </a>
                 </Col>
                 <Col className="collapse-close text-right" xs="6">
@@ -96,7 +97,7 @@ export default function IndexNavbar() {
                     className="navbar-toggler"
                     onClick={toggleCollapse}
                   >
-                    <i className="tim-icons icon-simple-remove text-danger" />
+                    <i className="tim-icons icon-simple-add text-danger" />
                   </button>
                 </Col>
               </Row>
@@ -105,18 +106,18 @@ export default function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <Link to="/">
-                  <Button className="nav-link  d-lg-block" color="default">
-                    <i className="ni ni-shop mb-2" />
-                    Home
+                  <Button className="nav-link" color="default">
+                    {/* <i className="ni ni-shop mb-2" /> */}
+                    <a href="">Home</a>
                   </Button>
                 </Link>
               </NavItem>
 
-              <NavItem>
+              <NavItem className="nav_item">
                 <Link to="/project">
                   <Button className="nav-link  d-lg-block" color="default">
-                    <i className="tim-icons icon-cloud-download-93" />
-                    Project
+                    {/* <i className="tim-icons icon-cloud-download-93" /> */}
+                    <a href=""> Project</a>
                   </Button>
                 </Link>
               </NavItem>
@@ -124,25 +125,34 @@ export default function IndexNavbar() {
               <NavItem>
                 <Link to="/blog">
                   <Button className="nav-link  d-lg-block" color="default">
-                    <i className="tim-icons icon-cloud-download-93" />
-                    Blog
+                    {/* <i className="tim-icons icon-cloud-download-93" /> */}
+                    <a href="">Blogs</a>
                   </Button>
                 </Link>
               </NavItem>
 
               <NavItem>
-                <Link to="/contact">
+                <Link to="/about">
                   <Button className="nav-link  d-lg-block" color="default">
-                    <i className="tim-icons icon-cloud-download-93" />
-                    Contact
+                    {/* <i className="tim-icons icon-cloud-download-93" /> */}
+                    <a href=""> ABOUT</a>
+                  </Button>
+                </Link>
+              </NavItem>
+
+              <NavItem>
+                <Link to="/service">
+                  <Button className="nav-link  d-lg-block" color="default">
+                    {/* <i className="tim-icons icon-cloud-download-93" /> */}
+                    <a href=""> Service</a>
                   </Button>
                 </Link>
               </NavItem>
             </Nav>
-            <PageNav />
-            <div className="mr-5">
-              <UserMenu />
+            <div className="page_btn">
+              <PageNav />
             </div>
+            <div className="mr-5"></div>
           </Collapse>
         </Container>
       </Navbar>

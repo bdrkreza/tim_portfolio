@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "reactstrap";
 import Achivements from "./Achivements";
 import Benefits from "./Benefits";
 import FeaturePage from "./FeaturePage";
@@ -16,7 +17,7 @@ export default function LandingPage() {
   return (
     <>
       <div className="wrapper">
-        <div className="page-header">
+        <div className="page-header d-flex justify-content-between align-items-center">
           <img
             alt="..."
             className="path"
@@ -47,7 +48,9 @@ export default function LandingPage() {
             className="shapes circle"
             src={require("assets/img/cercuri.png").default}
           />
-          <LandingHeder />
+          <Container className="d-flex justify-content-between align-items-center ">
+            <LandingHeder />
+          </Container>
         </div>
         <section className="section section-lg">
           <Achivements />

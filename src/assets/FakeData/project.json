@@ -3,9 +3,11 @@
     "id": "01",
     "projectName": "One Time Ticket",
     "qty": "01",
+    "liveLink": "https://modus-tailwind.web.app/",
+    "getHubLink": "https://github.com/bdrkreza/modus-mern-full-complete-website",
     "feature": [
       {
-        "feature": "User ManageMent App"
+        "feature": "E-Commerce web App"
       },
       {
         "feature": "user List with add/Edit Modals"
@@ -19,27 +21,48 @@
     ],
     "tools": [
       {
-        "tools": "mongodb"
+        "tools": "HTML"
       },
       {
-        "tools": "firebase"
+        "tools": "CSS"
       },
       {
-        "tools": "reactjs"
+        "tools": "Tailwind css"
       },
       {
-        "tools": "nodejs"
+        "tools": "react js"
+      },
+      {
+        "tools": "redux"
+      },
+      {
+        "tools": "node js"
+      },
+      {
+        "tools": "Express js"
+      },
+      {
+        "tools": "Mongodb"
+      },
+      {
+        "tools": "Firebase"
+      },
+      {
+        "tools": "Payment gateway"
       }
     ],
     "img": [
       {
-        "src": "https://webstockreview.net/images250_/biking-clipart-logo-1.png"
+        "src": "https://i.ibb.co/2c0Tx80/modus-1.jpg"
       },
       {
-        "src": "https://icon-library.com/images/18-wheeler-icon/18-wheeler-icon-9.jpg"
+        "src": "https://i.ibb.co/DCyrYFS/modus-2.jpg"
       },
       {
-        "src": "https://www.pinclipart.com/picdir/big/17-176422_clip-art-library-download-motorcycle-icon-free-download.png"
+        "src": "https://i.ibb.co/kQNsz6q/modus-3.jpg"
+      },
+      {
+        "src": "https://i.ibb.co/bRkT4nV/modus-4.jpg"
       }
     ]
   },
@@ -47,73 +70,159 @@
     "id": "02",
     "projectName": "One Day Pass",
     "qty": "02",
+    "liveLink": "https://red-security-app.web.app/",
+    "getHubLink": "https://github.com/bdrkreza/Red-Security-Service",
     "feature": [
       {
-        "feature": "User ManageMent App"
+        "feature": "User service provider App"
       },
       {
-        "feature": "user List with add/Edit Modals"
+        "feature": "Designed with HTML5 and CSS3"
       },
       {
-        "feature": "user permissions with Complete CRUD"
+        "feature": "API included "
       },
       {
-        "feature": "User Roles with complete CRUD"
+        "feature": "admin permissions with Complete CRUD "
       }
     ],
     "tools": [
       {
-        "tools": "mongodb"
+        "tools": "HTML"
+      },
+      {
+        "tools": "CSS"
+      },
+      {
+        "tools": "Bootstrap"
+      },
+      {
+        "tools": "react js"
+      },
+      {
+        "tools": "react hook form"
+      },
+      {
+        "tools": "node js"
+      },
+      {
+        "tools": "Express js"
+      },
+      {
+        "tools": "Mongodb"
       },
       {
         "tools": "firebase"
       },
       {
-        "tools": "reactjs"
-      },
-      {
-        "tools": "nodejs"
+        "tools": "Heroku"
       }
     ],
     "img": [
       {
-        "src": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Draw_car.png"
+        "src": "https://i.ibb.co/56TzVjH/redsecurity-7.jpg"
       },
       {
-        "src": "https://icon-library.com/images/e165b2f29c.png"
+        "src": "https://i.ibb.co/YZGy21Q/redsecurity-1.png"
       },
       {
-        "src": "https://www.vippng.com/png/full/103-1037052_vector-type-car-export-car-icon.png"
+        "src": "https://i.ibb.co/TqBVsKT/redsecurity-2.jpg"
+      },
+      {
+        "src": "https://i.ibb.co/fxR9HBZ/redsecurity-6.png"
+      },
+      {
+        "src": "https://i.ibb.co/SB96rFh/redsecurity-9.png"
+      },
+      {
+        "src": "https://i.ibb.co/Y7gw2Q9/redsecurity-10.png"
       }
     ]
   },
   {
     "id": "03",
-    "projectName": "One Day Pass",
+    "projectName": "Triba Rider app",
     "qty": "03",
+    "liveLink": "https://terben-rider-app.web.app/",
+    "getHubLink": "https://github.com/bdrkreza/TribaRider",
     "feature": [
       {
-        "feature": "User ManageMent App"
+        "feature": "users ride provider app"
       },
       {
-        "feature": "user List with add/Edit Modals"
+        "feature": "users and showing various type of vehicle"
       },
       {
-        "feature": "user permissions with Complete CRUD"
+        "feature": "Designed with HTML5 and CSS3"
       },
       {
-        "feature": "User Roles with complete CRUD"
+        "feature": "Integrated  firebase authentication with Google sign"
+      },
+      {
+        "feature": "Google map Location view"
+      },
+      {
+        "feature": " custom email, password authentication also"
       }
     ],
     "tools": [
       {
-        "tools": "mongodb"
+        "tools": "react js"
+      },
+      {
+        "tools": "bootstrap"
       },
       {
         "tools": "firebase"
       },
       {
-        "tools": "reactjs"
+        "tools": "nodejs"
+      },
+      {
+        "tools": "google map"
+      }
+    ],
+    "img": [
+      {
+        "src": "https://i.ibb.co/PFGrrjR/tribarider-1.jpg"
+      },
+      {
+        "src": "https://i.ibb.co/bFfhcJ9/tribarider-3.png"
+      },
+      {
+        "src": "https://i.ibb.co/XJ8hSTG/tribarider-2.png"
+      },
+      {
+        "src": "https://i.ibb.co/wCXYZ5T/tribarider-1.png"
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "projectName": "European Club app",
+    "qty": "04",
+    "liveLink": "https://xenodochial-thompson-5e99a1.netlify.app/",
+    "getHubLink": "https://github.com/bdrkreza/teamcool-app",
+    "feature": [
+      {
+        "feature": "Club  website"
+      },
+      {
+        "feature": "Files Included -html, JS, css"
+      },
+      {
+        "feature": "Integrated  firebase authentication with Google sign"
+      }
+    ],
+    "tools": [
+      {
+        "tools": "react js"
+      },
+      {
+        "tools": "bootstrap"
+      },
+      {
+        "tools": "firebase"
       },
       {
         "tools": "nodejs"
@@ -121,13 +230,13 @@
     ],
     "img": [
       {
-        "src": "https://www.pngkey.com/png/full/249-2490105_volvo-coach-bus.png"
+        "src": "https://i.ibb.co/Wcph8L0/Sport-Stack-1.png"
       },
       {
-        "src": "https://pics.clipartpng.com/Blue_Bus_PNG_Clipart-1079.png"
+        "src": "https://i.ibb.co/HXqDcGC/Sport-Stack-2.png"
       },
       {
-        "src": "http://www.comilonibus.com.br/site/arquivo/produto/detalhe/e5b9fc8bb2dd4dfded59ecfa559048a4.png"
+        "src": "https://i.ibb.co/Fm95jYL/Sport-Stack-3.png"
       }
     ]
   }
